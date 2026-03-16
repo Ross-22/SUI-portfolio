@@ -68,11 +68,20 @@ function App() {
           {/* Sui & Move Info Card */}
           <Card className="border-4 border-black rounded-none p-0 gap-0 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white overflow-hidden transform transition-transform hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
             <CardHeader className="border-b-4 border-black bg-accent text-white p-8 rounded-none">
-              <CardTitle className="text-3xl md:text-4xl font-black uppercase tracking-tight">Building on SUI</CardTitle>
-              <CardDescription className="text-white font-bold text-xl mt-2 bg-black inline-block px-2 py-1 w-fit">
-                Powered by Move Smart Contracts
-              </CardDescription>
+              <CardTitle className="text-3xl md:text-4xl font-black uppercase tracking-tight flex items-center gap-4">
+                <svg viewBox="0 0 300 383.5" className="w-10 h-10 md:w-12 md:h-12 fill-white shrink-0">
+                  <path d="M240.1,159.9c15.6,19.6,25,44.5,25,71.5s-9.6,52.6-25.7,72.4l-1.4,1.7l-0.4-2.2c-0.3-1.8-0.7-3.7-1.1-5.6
+          c-8-35.3-34.2-65.6-77.4-90.2c-29.1-16.5-45.8-36.4-50.2-59c-2.8-14.6-0.7-29.3,3.3-41.9c4.1-12.6,10.1-23.1,15.2-29.4l16.8-20.5
+          c2.9-3.6,8.5-3.6,11.4,0L240.1,159.9L240.1,159.9z M266.6,139.4L154.2,2c-2.1-2.6-6.2-2.6-8.3,0L33.4,139.4l-0.4,0.5
+          C12.4,165.6,0,198.2,0,233.7c0,82.7,67.2,149.8,150,149.8c82.8,0,150-67.1,150-149.8c0-35.5-12.4-68.1-33.1-93.8L266.6,139.4
+          L266.6,139.4z M60.3,159.5l10-12.3l0.3,2.3c0.2,1.8,0.5,3.6,0.9,5.4c6.5,34.1,29.8,62.6,68.6,84.6c33.8,19.2,53.4,41.3,59.1,65.6
+          c2.4,10.1,2.8,20.1,1.8,28.8l-0.1,0.5l-0.5,0.2c-15.2,7.4-32.4,11.6-50.5,11.6c-63.5,0-115-51.4-115-114.8
+          C34.9,204.2,44.4,179.1,60.3,159.5L60.3,159.5z"/>
+                </svg>
+                About Move Smart Contracts
+              </CardTitle>
             </CardHeader>
+
             <CardContent className="p-8 md:p-12 space-y-8 text-black">
               <p className="text-xl md:text-2xl font-bold leading-relaxed">
                 Sui is a high-performance Layer 1 blockchain engineered for industry-leading speed and horizontal scalability. Headquartered in Silicon Valley (Palo Alto, California), the network was built by Mysten Labs—a team founded by the original creators of the Move language with roots at Facebook (Meta) and the Diem project. By utilizing a unique object-centric data model and the secure Move programming language, Sui provides a robust infrastructure that slashes the Web3 learning curve. This foundation allows developers to manage assets with enhanced security and build scalable applications that can redefine the future of the internet.
