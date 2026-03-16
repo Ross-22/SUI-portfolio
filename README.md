@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# DEVCON Legazpi x Sui Network: Decentralized Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a fully functional, on-chain portfolio application built on the **Sui blockchain**. It demonstrates the power of Move smart contracts by storing professional details (name, bio, social links) as decentralized objects on the Sui Mainnet.
 
-Currently, two official plugins are available:
+## 🚀 Live on Sui Mainnet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Contract Package ID:** `0xd82616311d6b5e32b628973f3981cc28685537f2bad022177ce630df5c9c230d`
+- **Portfolio Object ID:** `0xf706a7ebe981b9b22e1b940414d2951c75daf25a5f433d4fdd6e8bfca2d8c1e4`
+- **View on-chain:** [Suiscan Link](https://suiscan.xyz/mainnet/object/0xf706a7ebe981b9b22e1b940414d2951c75daf25a5f433d4fdd6e8bfca2d8c1e4)
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Smart Contract:** Sui Move (Object-centric model).
+- **Frontend:** React 19 + TypeScript + Vite.
+- **Styling:** Vanilla CSS (Neobrutalism Design).
+- **Blockchain Integration:** `@mysten/dapp-kit` and `@mysten/sui`.
 
-## Expanding the ESLint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `/move_contract`: Contains the Sui Move smart contract source code.
+- `/frontend`: The React application that fetches and displays on-chain data.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🏃 How It Works
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1.  **Move Contract:** A `Portfolio` struct is defined in Move with fields for professional data.
+2.  **Deployment:** The contract is published to Sui Mainnet, allowing users to create unique Portfolio objects.
+3.  **Dynamic Fetching:** The frontend uses the `useSuiClientQuery` hook to fetch the latest state of a specific Portfolio object ID directly from the Sui network.
+4.  **Decentralized Data:** Your bio, title, and links are not stored in a traditional database but live permanently on the Sui blockchain.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Local Development
+
+### Prerequisites
+- [Sui CLI](https://docs.sui.io/guides/developer/getting-started/sui-install)
+- [Node.js & npm](https://nodejs.org/)
+
+### Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Move Contract Commands
+```bash
+cd move_contract
+sui move build
+sui move test
 ```
+
+## 📜 License
+This project was created for the DEVCON Legazpi x Sui Network event.
