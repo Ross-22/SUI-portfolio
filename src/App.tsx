@@ -5,6 +5,15 @@ import { useSuiClientQuery } from '@mysten/dapp-kit';
 import { PORTFOLIO_OBJECT_ID } from './constants';
 import suiLogo from './assets/sui-logo.svg';
 import devconLogo from './assets/devcon-logo.png';
+import profileImg from './assets/profile.jpg';
+
+interface PortfolioFields {
+  name: string;
+  title: string;
+  bio: string;
+  github_url: string;
+  linkedin_url: string;
+}
 
 function App() {
   const { data } = useSuiClientQuery('getObject', {
@@ -15,12 +24,12 @@ function App() {
   });
 
   const portfolio = data?.data?.content?.dataType === 'moveObject' 
-    ? (data.data.content.fields as any) 
+    ? (data.data.content.fields as unknown as PortfolioFields) 
     : null;
 
   return (
-    <div className="min-h-screen bg-background p-4 sm:p-6 md:p-12 font-sans selection:bg-accent selection:text-white flex items-center justify-center">
-      <div className="max-w-3xl w-full space-y-8 md:space-y-12">
+    <div className="min-h-screen bg-background font-sans selection:bg-accent selection:text-white flex flex-col items-center">
+      <div className="max-w-3xl w-full p-4 sm:p-6 md:p-12 space-y-8 md:space-y-12 flex-grow">
         
         {/* Header */}
         <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 border-b-4 border-black pb-8">
@@ -48,11 +57,18 @@ function App() {
         <main className="space-y-8 md:space-y-12">
           {/* Profile Display Card */}
           <Card className="border-4 border-black rounded-none p-0 gap-0 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white overflow-hidden transform transition-transform hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] md:hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
-            <CardHeader className="border-b-4 border-black bg-secondary text-white p-6 md:p-8 rounded-none">
-              <CardTitle className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">{portfolio?.name || 'Kadmiel Ross B. Baiño'}</CardTitle>
-              <CardDescription className="text-white font-bold text-lg sm:text-2xl mt-2 bg-black inline-block px-2 py-1 w-fit">
-                {portfolio?.title || 'EVP @ DEVCON Legazpi | Software Dev Intern'}
-              </CardDescription>
+            <CardHeader className="border-b-4 border-black bg-secondary text-white p-6 md:p-8 rounded-none flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+              <div className="relative shrink-0">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-4 border-black overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white">
+                  <img src={profileImg} alt="Profile" className="w-full h-full object-cover scale-150 translate-x-6" />
+                </div>
+              </div>
+              <div className="text-center sm:text-left">
+                <CardTitle className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">{portfolio?.name || 'Kadmiel Ross B. Baiño'}</CardTitle>
+                <CardDescription className="text-white font-bold text-lg sm:text-2xl mt-2 bg-black inline-block px-2 py-1 w-fit">
+                  {portfolio?.title || 'EVP @ DEVCON Legazpi | Software Dev Intern'}
+                </CardDescription>
+              </div>
             </CardHeader>
             <CardContent className="p-6 md:p-12 space-y-8 md:space-y-10">
               <div className="bg-[#f0f0f0] p-4 md:p-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
@@ -107,42 +123,50 @@ function App() {
             </CardContent>
           </Card>
         </main>
+      </div>
 
-        {/* Footer */}
-        <footer className="mt-8 md:mt-16 border-t-4 border-black pt-8 pb-12 flex flex-col items-center gap-6 md:gap-8">
-          <div className="w-full max-w-2xl bg-white border-4 border-black p-4 md:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center sm:rotate-[0.5deg]">
-            <p className="text-base sm:text-lg font-bold leading-relaxed text-black">
-              Proof of Learning Portfolio project proudly built and published with informed consent during a <span className="bg-accent text-white px-1">Move Smart Contracts Code Camp</span> by <span className="font-black">DEVCON Philippines & Sui Foundation</span> — where the participant wrote, tested, and deployed a Move smart contract on Sui Mainnet. The object's immutability serves one purpose: the participant's authorship and timestamp cannot be altered, removed, or claimed by anyone else.
+      {/* Full-width Footer */}
+      <footer className="w-full border-t-4 border-black bg-white mt-12 md:mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-12 md:py-16 flex flex-col items-center gap-10">
+          <div className="w-full max-w-4xl bg-[#f8f8f8] border-4 border-black p-6 md:p-10 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-center transform sm:rotate-[0.5deg]">
+            <p className="text-lg sm:text-xl md:text-2xl font-bold leading-relaxed text-black">
+              Proof of Learning Portfolio project proudly built and published with informed consent during a <span className="bg-accent text-white px-2 py-0.5">Move Smart Contracts Code Camp</span> by <span className="font-black">DEVCON Philippines & Sui Foundation</span> — where the participant wrote, tested, and deployed a Move smart contract on Sui Mainnet. The object's immutability serves one purpose: the participant's authorship and timestamp cannot be altered, removed, or claimed by anyone else.
             </p>
           </div>
 
-          <div className="w-full sm:w-auto bg-black text-white border-4 border-black px-4 py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center gap-1 sm:rotate-[-0.5deg]">
-            <span className="uppercase text-[10px] font-black tracking-[0.2em] text-accent">On-Chain Object ID</span>
-            <code className="text-[10px] sm:text-xs md:text-sm font-mono break-all font-bold text-center px-2">
-              {PORTFOLIO_OBJECT_ID}
-            </code>
-          </div>
+          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8 border-y-4 border-black py-8">
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <span className="uppercase text-xs font-black tracking-[0.2em] text-accent">On-Chain Object ID</span>
+              <div className="bg-black text-white border-2 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform sm:rotate-[-0.5deg]">
+                <code className="text-xs sm:text-sm font-mono break-all font-bold">
+                  {PORTFOLIO_OBJECT_ID}
+                </code>
+              </div>
+            </div>
 
-          <h3 className="text-xl sm:text-2xl font-black uppercase text-black bg-white border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:rotate-[-1deg]">
-            Explore More
-          </h3>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 w-full">
-            <a href="https://devcon.ph" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[140px] flex items-center justify-center bg-black text-white border-4 border-black px-4 py-3 md:px-6 md:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-secondary transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group">
-              <img src={devconLogo} alt="DEVCON.ph Logo" className="w-32 md:w-40 object-contain" />
-            </a>
-            <a href="https://sui.io" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[140px] flex items-center justify-center gap-3 bg-white border-4 border-black px-4 py-3 md:px-6 md:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-[#38bdf8] hover:text-white transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group">
-              <img src={suiLogo} alt="Sui Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain group-hover:invert transition-all" />
-              <span className="text-base sm:text-xl font-black uppercase">SUI Official</span>
-            </a>
-            <a href={`https://suiscan.xyz/mainnet/object/${PORTFOLIO_OBJECT_ID}`} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 bg-black border-4 border-black px-6 py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-accent text-white transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 sm:w-6 sm:h-6">
-                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-              <span className="text-base sm:text-xl font-black uppercase text-center">View on Suiscan</span>
-            </a>
+            <div className="flex flex-col items-center md:items-end gap-4">
+              <h3 className="text-xl sm:text-2xl font-black uppercase text-black bg-white border-4 border-black px-4 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:rotate-[-1deg]">
+                Explore More
+              </h3>
+              <div className="flex flex-wrap justify-center md:justify-end gap-4">
+                <a href="https://devcon.ph" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-black text-white border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-secondary transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group">
+                  <img src={devconLogo} alt="DEVCON.ph Logo" className="w-24 md:w-32 object-contain" />
+                </a>
+                <a href="https://sui.io" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-[#38bdf8] hover:text-white transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group">
+                  <img src={suiLogo} alt="Sui Logo" className="w-6 h-6 md:w-8 md:h-8 object-contain group-hover:invert transition-all" />
+                  <span className="text-sm sm:text-lg font-black uppercase">SUI Official</span>
+                </a>
+                <a href={`https://suiscan.xyz/mainnet/object/${PORTFOLIO_OBJECT_ID}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-accent text-white transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                  </svg>
+                  <span className="text-sm sm:text-lg font-black uppercase">Suiscan</span>
+                </a>
+              </div>
+            </div>
           </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
   );
 }
