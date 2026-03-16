@@ -78,7 +78,7 @@ function App() {
             </CardHeader>
             <CardContent className="p-8 md:p-12 space-y-8 text-black">
               <p className="text-xl md:text-2xl font-bold leading-relaxed">
-                The Sui Network is a next-generation Layer 1 blockchain designed for speed and scale. It uses the <span className="bg-secondary text-white px-1">Move programming language</span>, which introduces an object-centric model for digital assets, making smart contracts safer and more expressive.
+                Sui is a high-performance Layer 1 blockchain engineered for industry-leading speed and horizontal scalability. Headquartered in Silicon Valley (Palo Alto, California), the network was built by Mysten Labs—a team founded by the original creators of the Move language with roots at Facebook (Meta) and the Diem project. By utilizing a unique object-centric data model and the secure Move programming language, Sui provides a robust infrastructure that slashes the Web3 learning curve. This foundation allows developers to manage assets with enhanced security and build scalable applications that can redefine the future of the internet.
               </p>
               <a href="https://www.sui.io/move" target="_blank" rel="noopener noreferrer" className="inline-block">
                 <Button className="rounded-none border-4 border-black bg-black text-white hover:bg-secondary hover:text-white font-black text-xl py-6 px-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all uppercase tracking-wide">
@@ -91,6 +91,19 @@ function App() {
 
         {/* Footer */}
         <footer className="mt-16 border-t-4 border-black pt-8 pb-12 flex flex-col items-center gap-8">
+          <div className="max-w-2xl bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center rotate-[0.5deg]">
+            <p className="text-lg font-bold leading-relaxed text-black">
+              Proof of Learning Portfolio project proudly built and published with informed consent during a <span className="bg-accent text-white px-1">Move Smart Contracts Code Camp</span> by <span className="font-black">DEVCON Philippines & Sui Foundation</span> — where the participant wrote, tested, and deployed a Move smart contract on Sui Mainnet. The object's immutability serves one purpose: the participant's authorship and timestamp cannot be altered, removed, or claimed by anyone else.
+            </p>
+          </div>
+
+          <div className="bg-black text-white border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center gap-1 rotate-[-0.5deg]">
+            <span className="uppercase text-[10px] font-black tracking-[0.2em] text-accent">On-Chain Object ID</span>
+            <code className="text-xs md:text-sm font-mono break-all font-bold">
+              {PORTFOLIO_OBJECT_ID}
+            </code>
+          </div>
+
           <h3 className="text-2xl font-black uppercase text-black bg-white border-4 border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-[-1deg]">
             Explore More
           </h3>
