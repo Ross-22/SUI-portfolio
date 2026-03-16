@@ -5,7 +5,7 @@ import { useSuiClientQuery } from '@mysten/dapp-kit';
 import { PORTFOLIO_OBJECT_ID } from './constants';
 
 function App() {
-  const { data, isPending, error } = useSuiClientQuery('getObject', {
+  const { data } = useSuiClientQuery('getObject', {
     id: PORTFOLIO_OBJECT_ID,
     options: {
       showContent: true,
