@@ -16,9 +16,6 @@ function App() {
     ? (data.data.content.fields as any) 
     : null;
 
-  if (isPending) return <div className="min-h-screen flex items-center justify-center font-black text-2xl uppercase">Loading Portfolio...</div>;
-  if (error) return <div className="min-h-screen flex items-center justify-center font-black text-2xl uppercase text-red-500">Error: {error.message}</div>;
-
   return (
     <div className="min-h-screen bg-background p-6 md:p-12 font-sans selection:bg-accent selection:text-white flex items-center justify-center">
       <div className="max-w-3xl w-full space-y-12">
