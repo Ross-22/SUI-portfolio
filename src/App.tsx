@@ -25,8 +25,17 @@ function App() {
         {/* Header */}
         <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 border-b-4 border-black pb-8">
           <div className="w-full sm:w-auto">
-            <h1 className="text-2xl sm:text-4xl md:text-6xl font-black tracking-tighter uppercase bg-secondary text-white inline-block px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:rotate-[-1deg] w-full sm:w-auto text-center sm:text-left">
-              Smart Contracts Code Camp Portfolio
+            <h1 className="text-2xl sm:text-4xl md:text-6xl font-black tracking-tighter uppercase bg-secondary text-white flex items-center gap-3 sm:gap-4 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:rotate-[-1deg] w-full sm:w-auto text-center sm:text-left">
+              <svg viewBox="0 0 300 383.5" className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain fill-current">
+                <path d="M240.1,159.9c15.6,19.6,25,44.5,25,71.5s-9.6,52.6-25.7,72.4l-1.4,1.7l-0.4-2.2c-0.3-1.8-0.7-3.7-1.1-5.6
+                  c-8-35.3-34.2-65.6-77.4-90.2c-29.1-16.5-45.8-36.4-50.2-59c-2.8-14.6-0.7-29.3,3.3-41.9c4.1-12.6,10.1-23.1,15.2-29.4l16.8-20.5
+                  c2.9-3.6,8.5-3.6,11.4,0L240.1,159.9L240.1,159.9z M266.6,139.4L154.2,2c-2.1-2.6-6.2-2.6-8.3,0L33.4,139.4l-0.4,0.5
+                  C12.4,165.6,0,198.2,0,233.7c0,82.7,67.2,149.8,150,149.8c82.8,0,150-67.1,150-149.8c0-35.5-12.4-68.1-33.1-93.8L266.6,139.4
+                  L266.6,139.4z M60.3,159.5l10-12.3l0.3,2.3c0.2,1.8,0.5,3.6,0.9,5.4c6.5,34.1,29.8,62.6,68.6,84.6c33.8,19.2,53.4,41.3,59.1,65.6
+                  c2.4,10.1,2.8,20.1,1.8,28.8l-0.1,0.5l-0.5,0.2c-15.2,7.4-32.4,11.6-50.5,11.6c-63.5,0-115-51.4-115-114.8
+                  C34.9,204.2,44.4,179.1,60.3,159.5L60.3,159.5z"/>
+              </svg>
+              <span>Smart Contracts Code Camp Portfolio</span>
             </h1>
             <div className="flex justify-center sm:justify-start">
               <p className="text-black mt-4 text-base sm:text-xl font-bold bg-accent text-white inline-block px-3 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] sm:rotate-[1deg]">
