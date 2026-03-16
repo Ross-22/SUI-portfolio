@@ -3,6 +3,8 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { useSuiClientQuery } from '@mysten/dapp-kit';
 import { PORTFOLIO_OBJECT_ID } from './constants';
+import suiLogo from './assets/sui-logo.svg';
+import devconLogo from './assets/devcon-logo.png';
 
 function App() {
   const { data } = useSuiClientQuery('getObject', {
@@ -116,14 +118,11 @@ function App() {
             Explore More
           </h3>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 w-full">
-            <a href="https://devcon.ph" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[140px] flex items-center justify-center gap-3 bg-white border-4 border-black px-4 py-3 md:px-6 md:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-secondary hover:text-white transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group">
-              <span className="text-lg sm:text-2xl font-black uppercase tracking-wider group-hover:text-white">DEVCON.PH</span>
+            <a href="https://devcon.ph" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[140px] flex items-center justify-center bg-black text-white border-4 border-black px-4 py-3 md:px-6 md:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-secondary transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group">
+              <img src={devconLogo} alt="DEVCON.ph Logo" className="w-32 md:w-40 object-contain" />
             </a>
             <a href="https://sui.io" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[140px] flex items-center justify-center gap-3 bg-white border-4 border-black px-4 py-3 md:px-6 md:py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-[#38bdf8] hover:text-white transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 sm:w-8 sm:h-8 group-hover:fill-white fill-black">
-                <path d="M12 2L2 12l10 10 10-10L12 2zm0 18L4.8 12 12 4.8 19.2 12 12 20z" />
-                <circle cx="12" cy="12" r="4" />
-              </svg>
+              <img src={suiLogo} alt="Sui Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain group-hover:invert transition-all" />
               <span className="text-base sm:text-xl font-black uppercase">SUI Official</span>
             </a>
             <a href={`https://suiscan.xyz/mainnet/object/${PORTFOLIO_OBJECT_ID}`} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 bg-black border-4 border-black px-6 py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-accent text-white transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
