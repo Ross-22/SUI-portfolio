@@ -27,10 +27,10 @@ function App() {
         <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 border-b-4 border-black pb-8">
           <div>
             <h1 className="text-4xl md:text-6xl font-black tracking-tighter uppercase bg-secondary text-white inline-block px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-[-1deg]">
-              Web3 Portfolio
+              Smart Contracts Code Camp Portfolio
             </h1>
             <p className="text-black mt-4 text-xl font-bold bg-accent text-white inline-block px-3 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rotate-[1deg]">
-              DEVCON Legazpi x SUI Network.
+              DEVCON x SUI Network.
             </p>
           </div>
         </header>
